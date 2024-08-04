@@ -10,7 +10,6 @@ private:
     string name;
     string passwrd;
     double balance;
-
 public:
     string Setname()
     {
@@ -75,7 +74,6 @@ public:
             cout << "4. Exit" << endl;
             cout << "Enter choice: ";
             cin >> choice;
-
             switch (choice)
             {
             case 1:
@@ -97,8 +95,7 @@ public:
                 cout << "Invalid choice." << endl;
             }
         } while (choice != 4);
-    }
-   
+    }  
 };
 
 int main()
@@ -127,11 +124,9 @@ int main()
         ofstream outputFile("BankAcount.txt", ios::app);
         outputFile << account.Setname() << " " << account.Setpswrd() << " " << account.Setbalance();
         outputFile.close();
-
     }
     else
     {
-
         cin.ignore();
         ifstream inputFile("BankAcount.txt");
         while (!inputFile.eof())
@@ -152,22 +147,28 @@ int main()
             {
                 cout<< Accounts[i].Setname()<<", You are logged in.\n";
                 a++;
-                BankAccount account(Accounts[i].Setname(), Accounts[i].Setpswrd(), Accounts[i].Setbalance());
+                BankAccount account(Accounts[i].Setname(), Accounts[i].Setpswrd(), Accounts[i].Setbalance());               
                 account.BankManagement();
-                Accounts.push_back(account);
-                ofstream outputFile("BankAcount.txt", ios::app);
-                outputFile <<"\n"<< account.Setname() << " " << account.Setpswrd() << " " << account.Setbalance();
+                Accounts[i].Getname(account.Setname());
+                Accounts[i].Getpswrd(account.Setpswrd());
+                Accounts[i].Getbalance(account.Setbalance());
+                for (int i = 0; i < Accounts.size(); i++)
+                {
+                    cout << Accounts[i].Setname() << " " << Accounts[i].Setpswrd() << " " << Accounts[i].Setbalance() << endl;
+                }
+                ofstream outputFile("BankAcount.txt", ios::out);
+                for (int i = 0; i < Accounts.size(); i++)
+                {
+                    outputFile << Accounts[i].Setname() << " " << Accounts[i].Setpswrd() << " " << Accounts[i].Setbalance() << endl;
+                }
                 outputFile.close();
                 break;
             }
-          
         }
         if (!(a == 1))
         {
             cout << "Incorrect data\n";
-
         }
-
     return 0;
 }
 
