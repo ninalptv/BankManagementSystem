@@ -155,7 +155,7 @@ int main()
                 ofstream outputFile("BankAcount.txt", ios::out);
                 for (int i = 0; i < Accounts.size(); i++)
                 {
-                    outputFile << Accounts[i].Setname() << " " << Accounts[i].Setpswrd() << " " << Accounts[i].Setbalance() << endl;
+                    outputFile <<"\n"<< Accounts[i].Setname() << " " << Accounts[i].Setpswrd() << " " << Accounts[i].Setbalance() << endl;
                 }
                 outputFile.close();
                 break;
