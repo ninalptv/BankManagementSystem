@@ -141,10 +141,6 @@ int main()
             Accounts.push_back(account);
         }
         inputFile.close();
-        for (int i = 0; i < Accounts.size(); i++)
-        {
-            cout << Accounts[i].Setname() << " " << Accounts[i].Setpswrd() << " " << Accounts[i].Setbalance()<<endl;
-        }
         cout << "Enter your name: ";
         getline(cin, name);
         cout << "Enter your pswd: ";
